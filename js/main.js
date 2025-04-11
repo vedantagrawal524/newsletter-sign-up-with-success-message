@@ -1,11 +1,27 @@
-const form = document.querySelector(".form");
-const submittedEmail = document.querySelector(".subscribed-email");
+// sig-up Card
 const signup = document.querySelector(".signup-card");
+const form = document.querySelector(".form");
+const errorMss = document.querySelector(".error-message");
+const emailInput = document.querySelector("#email");
+
+// success Card
 const success = document.querySelector(".success-card");
+const subscribedEmail = document.querySelector(".subscribed-email");
 const dismiss = document.querySelector(".dismiss");
 
+// Operations
+function isValidEntry(str) {
+     const reg = new RegExp("^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}$", "i");
+     return reg.test(str);
+}
+
+function showErrors() {
+     errorMss.classList.remove("hide");
+     emailInput.classList.add("error");
+}
+
 function updateSuccessMessage(email) {
-     submittedEmail.textContent = email;
+     subscribedEmail.textContent = email;
 }
 
 function switchSections() {
@@ -13,28 +29,22 @@ function switchSections() {
      success.classList.toggle("hide");
 }
 
-function isValidEntry(str) {
-     const reg = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
-     return reg.test(str);
-}
-
-function showErrors() {
-     const errorMss = document.querySelector(".error-message");
-     const input = document.querySelector("#email");
-     errorMss.classList.remove("hide");
-     input.classList.add("error");
-}
-
 form.addEventListener("submit", (e) => {
      e.preventDefault();
-     const email = form.querySelector("#email");
-     const valid = isValidEntry(email.value);
+     const valid = isValidEntry(emailInput.value);
      if (!valid) {
           return showErrors();
      }
      if (valid) {
-          updateSuccessMessage(email.value);
+          updateSuccessMessage(emailInput.value);
           switchSections();
+     }
+});
+
+emailInput.addEventListener("input", () => {
+     if (emailInput.classList.contains("error")) {
+          emailInput.classList.remove("error");
+          errorMss.classList.add("hide");
      }
 });
 
@@ -42,3 +52,4 @@ dismiss.addEventListener("click", () => {
      switchSections();
      updateSuccessMessage("");
 });
+
