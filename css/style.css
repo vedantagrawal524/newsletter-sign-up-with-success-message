@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
-* {
+*,
+*::after,
+*::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -9,6 +11,256 @@
 html {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  font-weight: 400;
-  /* font-weight: 700; */
+  font-weight: 450;
+  color: hsl(235, 18%, 26%);
+}
+
+body {
+  background-color: hsl(235, 18%, 26%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-card,
+.success-card {
+  margin: 2em;
+  background-color: hsl(0, 0%, 100%);
+  max-width: 40em;
+  border-radius: 1em;
+  padding: 1em;
+  min-height: auto;
+}
+
+.sign-up {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.img {
+  justify-self: flex-end;
+  width: fit-content;
+  height: auto;
+}
+
+.img img {
+  width: 17em;
+  max-width: 100%;
+  height: auto;
+  display: inherit;
+}
+
+.img .img-mobile {
+  display: none;
+}
+
+.content {
+  padding: 2.1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.content .head {
+  color: hsl(234, 29%, 20%);
+  font-size: 2.4em;
+}
+
+.content .info {
+  font-size: 0.7em;
+}
+
+ul {
+  font-size: 0.7em;
+
+  list-style-type: none;
+  list-style-position: inside;
+  line-height: 1.5;
+}
+
+ul li {
+  display: flex;
+  gap: 0.5em;
+}
+
+ul li img {
+  width: 1.5em;
+}
+
+ul li .check-text {
+  align-self: center;
+}
+
+button,
+input,
+label {
+  font: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+label {
+  font-size: 0.6em;
+  font-weight: 600;
+}
+
+input {
+  padding: 1em 1.2em;
+  font-size: 0.7em;
+  width: 100%;
+  border-radius: 0.6em;
+  border: 1px solid hsl(0, 0%, 58%);
+  color: hsl(235, 18%, 26%);
+  transition: background-color 200ms ease-in-out, box-shadow 200ms;
+}
+
+input::placeholder {
+  color: hsl(0, 0%, 58%);
+}
+
+input:focus {
+  outline: 2px solid transparent;
+  box-shadow: 0px 0px 0px 3px hsl(235, 18%, 26%),
+    0px 0px 0px 6px hsl(4, 100%, 68%);
+}
+
+input.error {
+  background-color: hsl(4, 58%, 78%, 0.4);
+  box-shadow: 0 0 0 2px hsl(4, 100%, 67%);
+  color: hsl(4, 100%, 67%);
+}
+
+.error-message {
+  font-size: 0.6em;
+  font-weight: 600;
+  color: hsl(4, 100%, 67%);
+}
+
+.dismiss,
+.submit-button {
+  cursor: pointer;
+  padding: 1em 1.2em;
+  font-size: 0.7em;
+  width: 100%;
+  border-radius: 0.6em;
+  border: none;
+  outline: none;
+  background-color: hsl(234, 29%, 20%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+  text-align: center;
+}
+
+.dismiss:hover,
+.submit-button:hover {
+  background-color: hsl(4, 100%, 67%, 0.9);
+}
+
+.dismiss:focus,
+.submit-button:focus {
+  outline: 2px solid transparent;
+}
+
+.dismiss:focus-visible,
+.submit-button:focus-visible {
+  box-shadow: 0px 0px 0px 3px hsl(0, 0%, 100%),
+    0px 0px 0px 6px hsl(4, 100%, 67%);
+}
+
+.form-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+/* Success View */
+.success {
+  max-width: 18em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.success img {
+  width: 2.8em;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.success .head {
+  margin-bottom: 0.5em;
+  line-height: 1em;
+  color: hsl(234, 29%, 20%);
+  font-size: 2.4em;
+}
+
+.success .info {
+  margin-bottom: 1.7em;
+  font-size: 0.7em;
+  font-size: 0.7em;
+  line-height: 1.4em;
+}
+
+.subscribed-email {
+  font-weight: 900;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 620px) {
+  html {
+    font-size: 15px;
+  }
+
+  .sign-up {
+    grid-template-columns: 1fr;
+  }
+  .img {
+    height: auto;
+    width: 100%;
+    height: auto;
+    order: -1;
+  }
+
+  .img .img-desktop {
+    display: none;
+  }
+
+  .img .img-mobile {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 10x;
+  }
 }
