@@ -34,6 +34,7 @@ const API_BASE_URL =
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const valid = isValidEntry(emailInput.value);
+  const email = emailInput.value;
 
   if (valid) {
     try {
