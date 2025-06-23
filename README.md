@@ -10,6 +10,7 @@ This is a solution to the [Newsletter sign-up form with success message challeng
   - [Screenshots](#screenshots)
   - [Live Links](#live-links)
   - [Built With](#built-with)
+  - [Backend Features](#backend-features)
 - [Author](#author)
 
 ---
@@ -27,11 +28,11 @@ A sleek and responsive newsletter sign-up form that provides:
 
 #### 🖥️ Desktop View
 
-![Desktop Design](./design/desktop-design.jpg)
+![Desktop Design](./client/design/desktop-design.jpg)
 
 #### 📱 Mobile View
 
-![Mobile Design](./design/mobile-design.jpg)
+![Mobile Design](./client/design/mobile-design.jpg)
 
 ---
 
@@ -49,7 +50,21 @@ A sleek and responsive newsletter sign-up form that provides:
 - Flexbox
 - JavaScript (Vanilla)
 - Media Queries
-- [Vercel](https://vercel.com/) – for deployment
+- [Vercel](https://vercel.com/) for Client deployment  
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- [Render](https://render.com/) for Server deployment  
+
+---
+
+### Backend Features
+
+- Created an **Express.js server** to handle email submissions.
+- Emails submitted via the newsletter form are stored securely in a **MongoDB database**.
+- Used **Mongoose** to define the email schema and perform validations.
+- Hosted backend using **Render**.
 
 ---
 

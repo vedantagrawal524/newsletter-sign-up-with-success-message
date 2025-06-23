@@ -29,7 +29,8 @@ function switchSections() {
   success.classList.toggle("hide");
 }
 
-const API_BASE_URL = "";
+const API_BASE_URL =
+  "https://newsletter-sign-up-with-success-message-5v8z.onrender.com";
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const valid = isValidEntry(emailInput.value);
